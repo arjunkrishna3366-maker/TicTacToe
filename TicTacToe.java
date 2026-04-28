@@ -1,20 +1,19 @@
-import java.util.Scanner;
-
 public class TicTacToe {
 
+    static char[][] board = {
+        {'-', '-', '-'},
+        {'-', '-', '-'},
+        {'-', '-', '-'}
+    };
+
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        int slot = getUserSlot(sc);
-
-        System.out.println("Slot entered: " + slot);
-        
-        sc.close();
+        System.out.println(isValidMove(1, 1));
     }
 
-    static int getUserSlot(Scanner scanner) {
-        System.out.print("Enter slot number (1-9): ");
-        int slot = scanner.nextInt();
-        return slot;
+    static boolean isValidMove(int row, int col) {
+        if (row >= 0 && row < 3 && col >= 0 && col < 3) {
+            return board[row][col] == '-';
+        }
+        return false;
     }
 }
